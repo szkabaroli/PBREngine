@@ -7,7 +7,9 @@
 .log
 .idb
 .opendb
-/obj/Debug
+
+/obj
 /libs
+/include
 /Debug
 /.vs
