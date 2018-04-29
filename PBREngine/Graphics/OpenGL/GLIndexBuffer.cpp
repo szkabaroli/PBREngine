@@ -1,5 +1,6 @@
 #include "../IndexBuffer.h"
-#include "GL\glew.h"
+#include "../Graphics.h"
+
 #include <assert.h>
 
 

@@ -1,9 +1,12 @@
 #pragma once
 
 #include "Graphics/Graphics.h"
+#include "Graphics\VertexBuffer.h"
+#include "Graphics\IndexBuffer.h"
+
 #include <iostream>
 
-#define main  SDL_main
+#define main SDL_main
 
 int main(int argc, char* argv[])
 {
@@ -11,9 +14,17 @@ int main(int argc, char* argv[])
 
 	g.OpenWindow(1280, 720, true, false, false);
 
-	g.Clear(COLOR_CLEAR | DEPTH_CLEAR, RGBA(255, 0, 255, 0));
+	
+	float positions[6] = {
+		-0.5f, -0.5f,
+		0.5f, 0.5f,
+		0.5f, -0.5f
+	};
 
 
+	std::cout << (sizeof(positions) / sizeof(*positions)) << std::endl;
+
+	VertexBuffer vbuffer(positions, (sizeof(positions) / sizeof(*positions)) * sizeof(float));
 
 
 
@@ -31,7 +42,18 @@ int main(int argc, char* argv[])
 				quit = 1;
 			}
 		}
+		
+		g.Clear(COLOR_CLEAR | DEPTH_CLEAR, RGBA(255, 0, 255, 0));
+
+		g.BeginFrame();
+		
+		
+
+		g.EndFrame();
+
+
 	}
+
 
 	g.CloseWindow();
 

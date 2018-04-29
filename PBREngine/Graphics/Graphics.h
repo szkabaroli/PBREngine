@@ -5,6 +5,15 @@
 #include <stdint.h>
 #include <iostream>
 
+//#ifdef API_GL
+
+#pragma comment (lib, "opengl32.lib")
+#define GLEW_STATIC
+#include <gl\glew.h>
+
+//#endif 
+
+
 struct RGBA{ 
 	uint8_t r, g, b, a;
 	RGBA(uint8_t r, uint8_t g, uint8_t b, uint8_t a) : r(r), g(g), b(b), a(a) {};

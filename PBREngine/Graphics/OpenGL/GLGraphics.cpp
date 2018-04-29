@@ -1,9 +1,8 @@
-﻿#pragma comment (lib, "opengl32.lib")
+﻿
 
 #include "../Graphics.h"
 
-#define GLEW_STATIC
-#include <gl\glew.h>
+
 
 static const unsigned depthFunctions[] =
 {
@@ -41,6 +40,8 @@ bool Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, boo
 
 	// Create an OpenGL context associated with the window.
 	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+
+	glewInit();
 
 	return 0;
 }
