@@ -1,8 +1,5 @@
-﻿
-
-#include "../Graphics.h"
-
-
+﻿#include "../Graphics.h"
+#include <iostream>
 
 static const unsigned depthFunctions[] =
 {
@@ -16,7 +13,7 @@ static const unsigned depthFunctions[] =
 };
 
 #pragma region Window
-bool Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
+void Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
 {
 	unsigned flags = 0;
 
@@ -33,17 +30,19 @@ bool Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, boo
 	if (!window)
 		throw std::runtime_error("Failed to create window!");
 
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 2);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
 	// Create an OpenGL context associated with the window.
 	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
 
-	glewInit();
+	glewExperimental = true;
+	GLenum err = glewInit();
+	if (GLEW_OK != err)
+		printf("Error: %s\n", glewGetErrorString(err));
 
-	return 0;
+	printf((const char*)glGetString(GL_VERSION));
 }
 
 
@@ -86,8 +85,8 @@ void Graphics::Clear(unsigned char inFlags, RGBA color)
 
 void Graphics::BeginFrame()
 {
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(depthFunctions[0]);
+	/*glEnable(GL_DEPTH_TEST);
+	glDepthFunc(depthFunctions[0]);*/
 }
 
 
@@ -96,7 +95,7 @@ void Graphics::EndFrame()
 	SDL_GL_SwapWindow(window);
 }
 
-void Graphics::Draw(unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount)
+void Graphics::Draw(unsigned vertexStart, unsigned vertexCount)
 {
-
+	glDrawArrays(GL_TRIANGLES, vertexStart, vertexCount);
 }

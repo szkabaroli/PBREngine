@@ -23,6 +23,8 @@
     <ClCompile Include="GLWindow.cpp" />
     <ClCompile Include="Graphics\Graphics.cpp" />
     <ClCompile Include="Graphics\OpenGL\GLGraphics.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLShader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OBJImporter.cpp" />
     <ClCompile Include="OBJ_Loader.cpp" />
@@ -36,6 +38,7 @@
     <ClInclude Include="Graphics\Definitions.h" />
     <ClInclude Include="Graphics\Graphics.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Graphics\Shader.h" />
     <ClInclude Include="OBJImporter.h" />
     <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="RenderManager.h" />
@@ -111,11 +114,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>OPENGL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)\libs\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
+      <IgnoreSpecificDefaultLibraries>MSVCRT;LIBCMT</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

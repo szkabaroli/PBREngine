@@ -29,6 +29,8 @@
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="Graphics\OpenGL\GLVertexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLIndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLShader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics\Definitions.h">
@@ -57,6 +59,7 @@
     </ClInclude>
     <ClInclude Include="Graphics\VertexBuffer.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
+    <ClInclude Include="Graphics\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">

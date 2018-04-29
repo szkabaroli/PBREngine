@@ -3,15 +3,16 @@
 #include "Definitions.h"
 #include <SDL\SDL.h>
 #include <stdint.h>
-#include <iostream>
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
 
-//#ifdef API_GL
+#ifdef OPENGL
 
 #pragma comment (lib, "opengl32.lib")
 #define GLEW_STATIC
 #include <gl\glew.h>
 
-//#endif 
+#endif 
 
 
 struct RGBA{ 
@@ -30,7 +31,7 @@ public:
 	Graphics();
 	~Graphics();
 
-	bool OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen);
+	void OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen);
 	void CloseWindow();
 
 	//gfx functions
@@ -38,7 +39,7 @@ public:
 	void BeginFrame();
 	void EndFrame();
 
-	void Draw(unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount);
+	void Draw(unsigned vertexStart, unsigned vertexCount);
 
 	SDL_Window* window;
 };

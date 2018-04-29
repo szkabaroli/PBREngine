@@ -11,7 +11,7 @@ public:
 	void Unbind();
 
 	inline unsigned GetCount() const { return count; };
-private:
+
 	unsigned bufferId;
 	unsigned count;
 };

@@ -1,6 +1,5 @@
 #include "../IndexBuffer.h"
 #include "../Graphics.h"
-
 #include <assert.h>
 
 
