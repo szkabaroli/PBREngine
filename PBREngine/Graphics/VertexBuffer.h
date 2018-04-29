@@ -9,7 +9,7 @@ public:
 
 	void Bind();
 	void Unbind();
-
-	unsigned int bufferId;
+private:
+	unsigned bufferId;
 };
 

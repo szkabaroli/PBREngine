@@ -35,7 +35,7 @@
     <ClInclude Include="GLWindow.h" />
     <ClInclude Include="Graphics\Definitions.h" />
     <ClInclude Include="Graphics\Graphics.h" />
-    <ClInclude Include="Graphics\OpenGL\IndexBuffer.h" />
+    <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="OBJImporter.h" />
     <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="RenderManager.h" />

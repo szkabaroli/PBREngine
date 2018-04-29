@@ -17,7 +17,7 @@ static const unsigned depthFunctions[] =
 };
 
 #pragma region Window
-bool Graphics::OpenWindow(unsigned int w, unsigned int h, bool sync, bool resizable, bool fullscreen)
+bool Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
 {
 	unsigned flags = 0;
 
@@ -93,4 +93,9 @@ void Graphics::BeginFrame()
 void Graphics::EndFrame()
 {
 	SDL_GL_SwapWindow(window);
+}
+
+void Graphics::Draw(unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount)
+{
+
 }

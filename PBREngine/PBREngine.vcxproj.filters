@@ -55,8 +55,8 @@
     <ClInclude Include="tiny_obj_loader.h">
       <Filter>h</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\OpenGL\IndexBuffer.h" />
     <ClInclude Include="Graphics\VertexBuffer.h" />
+    <ClInclude Include="Graphics\IndexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">

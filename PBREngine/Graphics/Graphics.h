@@ -21,13 +21,15 @@ public:
 	Graphics();
 	~Graphics();
 
-	bool OpenWindow(unsigned int w, unsigned int h, bool sync, bool resizable, bool fullscreen);
+	bool OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen);
 	void CloseWindow();
 
 	//gfx functions
 	void Clear(unsigned char flags, RGBA color);
 	void BeginFrame();
 	void EndFrame();
+
+	void Draw(unsigned indexStart, unsigned indexCount, unsigned minVertex, unsigned vertexCount);
 
 	SDL_Window* window;
 };
