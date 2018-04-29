@@ -28,18 +28,19 @@
     <ClCompile Include="OBJ_Loader.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="tiny_obj_loader.cc" />
-    <ClCompile Include="Graphics\OpenGL\GLVertexBufffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLVertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
     <ClInclude Include="GLWindow.h" />
     <ClInclude Include="Graphics\Definitions.h" />
     <ClInclude Include="Graphics\Graphics.h" />
+    <ClInclude Include="Graphics\OpenGL\IndexBuffer.h" />
     <ClInclude Include="OBJImporter.h" />
     <ClInclude Include="OBJ_Loader.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="tiny_obj_loader.h" />
-    <ClInclude Include="Graphics\VertexBufffer.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

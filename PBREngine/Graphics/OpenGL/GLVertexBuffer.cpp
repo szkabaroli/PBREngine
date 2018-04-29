@@ -1,8 +1,8 @@
-#include "../VertexBufffer.h"
+#include "../VertexBuffer.h"
 #include "GL\glew.h"
 
 
-VertexBufffer::VertexBufffer(const void* data, unsigned size)
+VertexBuffer::VertexBuffer(const void* data, unsigned size)
 {
 	glGenBuffers(1, &bufferId);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferId);
@@ -10,19 +10,19 @@ VertexBufffer::VertexBufffer(const void* data, unsigned size)
 }
 
 
-VertexBufffer::~VertexBufffer()
+VertexBuffer::~VertexBuffer()
 {
 	glDeleteBuffers(1, &bufferId);
 }
 
 
-void VertexBufffer::Bind()
+void VertexBuffer::Bind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, bufferId);
 }
 
 
-void VertexBufffer::Unbind()
+void VertexBuffer::Unbind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

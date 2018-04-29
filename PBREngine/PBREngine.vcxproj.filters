@@ -28,7 +28,7 @@
     <ClCompile Include="tiny_obj_loader.cc">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\OpenGL\GLVertexBufffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLVertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics\Definitions.h">
@@ -55,7 +55,8 @@
     <ClInclude Include="tiny_obj_loader.h">
       <Filter>h</Filter>
     </ClInclude>
-    <ClInclude Include="Graphics\VertexBufffer.h" />
+    <ClInclude Include="Graphics\OpenGL\IndexBuffer.h" />
+    <ClInclude Include="Graphics\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="cpp">
