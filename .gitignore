@@ -1,0 +1,13 @@
+.obj
+.pdb
+.lib
+.dll
+.ilk
+.tlog
+.log
+.idb
+.opendb
+/obj/Debug
+/libs
+/Debug
+/.vs
