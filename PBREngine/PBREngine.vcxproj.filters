@@ -1,25 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Game.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="GLWindow.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
     <ClCompile Include="Graphics\Graphics.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="OBJ_Loader.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="OBJImporter.cpp">
-      <Filter>cpp</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderManager.cpp">
       <Filter>cpp</Filter>
     </ClCompile>
     <ClCompile Include="tiny_obj_loader.cc">
@@ -36,22 +21,7 @@
     <ClInclude Include="Graphics\Definitions.h">
       <Filter>h</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>h</Filter>
-    </ClInclude>
-    <ClInclude Include="GLWindow.h">
-      <Filter>h</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics\Graphics.h">
-      <Filter>h</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJ_Loader.h">
-      <Filter>h</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJImporter.h">
-      <Filter>h</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderManager.h">
       <Filter>h</Filter>
     </ClInclude>
     <ClInclude Include="tiny_obj_loader.h">
@@ -74,5 +44,8 @@
   <ItemGroup>
     <None Include="shader.glsl" />
     <None Include="SDL2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shader.hlsl" />
   </ItemGroup>
 </Project>

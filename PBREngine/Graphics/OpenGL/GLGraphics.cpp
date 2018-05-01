@@ -12,9 +12,13 @@ static const unsigned depthFunctions[] =
 	GL_GEQUAL
 };
 
-#pragma region Window
-void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
+
+void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool vsync, bool resizable, bool fullscreen)
 {
+	this->vsync = vsync;
+	this->resizable = resizable;
+	this->fullscreen = fullscreen;
+
 	unsigned flags = 0;
 
 	if (resizable)
@@ -34,16 +38,15 @@ void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool sync, 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
-	// Create an OpenGL context associated with the window.
-	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
+	SDL_GL_SetSwapInterval(vsync ? 1 : 0);
+
+	auto glcontext = SDL_GL_CreateContext(window);
 
 	glewExperimental = true;
-	GLenum err = glewInit();
-	if (GLEW_OK != err)
-		printf("Error: %s\n", glewGetErrorString(err));
+	if (GLEW_OK != glewInit())
+		printf("Error with glew");
 
 	printf((const char*)glGetString(GL_VERSION));
-	std::cout << std::endl;
 }
 
 
@@ -56,7 +59,7 @@ void Graphics::CloseWindow()
 		window = nullptr;
 	}
 }
-#pragma endregion
+
 
 void Graphics::Clear(unsigned char inFlags, RGBA color) 
 {
@@ -96,7 +99,14 @@ void Graphics::EndFrame()
 	SDL_GL_SwapWindow(window);
 }
 
+
 void Graphics::Draw(unsigned vertexStart, unsigned vertexCount)
 {
 	glDrawArrays(GL_TRIANGLES, vertexStart, vertexCount);
+}
+
+
+void Graphics::Draw(int size)
+{
+	glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, nullptr);
 }
