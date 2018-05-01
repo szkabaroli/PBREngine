@@ -31,7 +31,7 @@ public:
 	Graphics();
 	~Graphics();
 
-	void OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen);
+	void OpenWindow(const char* title, unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen);
 	void CloseWindow();
 
 	//gfx functions

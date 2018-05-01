@@ -13,7 +13,7 @@ static const unsigned depthFunctions[] =
 };
 
 #pragma region Window
-void Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
+void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool sync, bool resizable, bool fullscreen)
 {
 	unsigned flags = 0;
 
@@ -25,13 +25,13 @@ void Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, boo
 
 	flags |= SDL_WINDOW_OPENGL;
 
-	window = SDL_CreateWindow("gfs", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, flags);
+	window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, w, h, flags);
 
 	if (!window)
 		throw std::runtime_error("Failed to create window!");
 
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 
 	// Create an OpenGL context associated with the window.
@@ -43,6 +43,7 @@ void Graphics::OpenWindow(unsigned w, unsigned h, bool sync, bool resizable, boo
 		printf("Error: %s\n", glewGetErrorString(err));
 
 	printf((const char*)glGetString(GL_VERSION));
+	std::cout << std::endl;
 }
 
 
@@ -85,8 +86,8 @@ void Graphics::Clear(unsigned char inFlags, RGBA color)
 
 void Graphics::BeginFrame()
 {
-	/*glEnable(GL_DEPTH_TEST);
-	glDepthFunc(depthFunctions[0]);*/
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(depthFunctions[0]);
 }
 
 
