@@ -1,6 +1,8 @@
 #include "../Graphics.h"
 #include <iostream>
 
+#ifdef DIRECTX_11
+
 void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool vsync, bool resizable, bool fullscreen)
 {
 	this->vsync = vsync;
@@ -97,3 +99,5 @@ void Graphics::EndFrame()
 {
 	swapChain->Present(vsync ? 1 : 0, 0);
 }
+
+#endif

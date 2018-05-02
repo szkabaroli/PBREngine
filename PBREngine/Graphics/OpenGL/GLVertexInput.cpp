@@ -1,5 +1,6 @@
 #include "../VertexInput.h"
-#include "../Graphics.h"
+
+#ifdef OPEN_GL
 
 VertexInput::VertexInput()
 {
@@ -47,3 +48,5 @@ VertexInput::~VertexInput()
 {
 	glDeleteVertexArrays(1, &vaoId);
 }
+
+#endif

@@ -5,16 +5,20 @@
 #include "Graphics\VertexBuffer.h"
 #include "Graphics\IndexBuffer.h"
 #include "Graphics\Shader.h"
+#include "common.h"
 #include <string>
 #include <iostream>
 
 #define main SDL_main
 
+Graphics gfx;
+
 int main(int argc, char* argv[])
 {
-	Graphics g = Graphics();
+	
+	gfx = Graphics();
 
-	g.OpenWindow("PBR Engine", 1280, 720, true, false, true);
+	gfx.OpenWindow("PBR Engine", 1280, 720, true, false, false);
 
 	
 	float positions[] = {
@@ -29,17 +33,17 @@ int main(int argc, char* argv[])
 		2, 3, 0
 	};
 
-	/*VertexInput input = VertexInput();
+	//VertexInput input = VertexInput();
 
 	VertexBuffer vbuffer(positions, sizeof(positions));
-	IndexBuffer ibuffer(elements, sizeof(elements));
+	//IndexBuffer ibuffer(elements, sizeof(elements));
 	
-	input.AddBuffer(0, 2, vbuffer);
-	input.AddBuffer(ibuffer);
+	//input.AddBuffer(0, 2, vbuffer);
+	//input.AddBuffer(ibuffer);
 
-	ShaderSource src("shader.glsl");
-	Shader shader(src);
-	*/
+	//ShaderSource src("shader.glsl");
+	//Shader shader(src);
+	
 	char quit = 0;
 	SDL_Event event;
 
@@ -58,24 +62,24 @@ int main(int argc, char* argv[])
 				quit = 1;
 			}
 		}
-		/*
-		input.Bind();
-		shader.Bind();
 		
-		g.BeginFrame();
-		*/
-		g.Clear(COLOR_CLEAR | DEPTH_CLEAR, RGBA(255, 0, 0, 0));
-		/*
-		g.Draw(ibuffer.GetCount());
-		*/
-		g.EndFrame();
-		/*
-		shader.Unbind();
-		input.Unbind();*/
+		//input.Bind();
+		//shader.Bind();
+		
+		gfx.BeginFrame();
+		
+		gfx.Clear(COLOR_CLEAR | DEPTH_CLEAR, RGBA(255, 0, 0, 0));
+		
+		//gfx.Draw(ibuffer.GetCount());
+		
+		gfx.EndFrame();
+		
+		//shader.Unbind();
+		//input.Unbind();
 	}
 
 
-	g.CloseWindow();
+	gfx.CloseWindow();
 
 	return 0;
 }

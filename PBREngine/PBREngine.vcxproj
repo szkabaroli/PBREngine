@@ -35,6 +35,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Graphics\Direct3D11\DX11Graphics.cpp" />
+    <ClCompile Include="Graphics\Direct3D11\DX11IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\Direct3D11\DX11VertexBuffer.cpp" />
+    <ClCompile Include="Graphics\Direct3D11\DX11VertexInput.cpp" />
     <ClCompile Include="Graphics\Graphics.cpp" />
     <ClCompile Include="Graphics\OpenGL\GLGraphics.cpp" />
     <ClCompile Include="Graphics\OpenGL\GLIndexBuffer.cpp" />
@@ -47,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics\Definitions.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="Graphics\Graphics.h" />
     <ClInclude Include="Graphics\IndexBuffer.h" />
     <ClInclude Include="Graphics\Shader.h" />
@@ -56,19 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
-    <None Include="shader.glsl" />
-  </ItemGroup>
-  <ItemGroup>
-    <FxCompile Include="shader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='OpenGLDebug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='OpenGLDebug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='DirectXDebug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='DirectXDebug|Win32'">Vertex</ShaderType>
-    </FxCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

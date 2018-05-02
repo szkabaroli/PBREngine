@@ -1,6 +1,6 @@
 #include "../VertexBuffer.h"
-#include "../Graphics.h"
 
+#ifdef OPEN_GL
 
 VertexBuffer::VertexBuffer(const void* data, unsigned size)
 {
@@ -28,3 +28,5 @@ void VertexBuffer::Unbind()
 {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
+
+#endif

@@ -1,6 +1,8 @@
 #include "../Shader.h"
 #include "../Graphics.h"
 
+#ifdef OPEN_GL
+
 Shader::Shader(ShaderSource &source)
 {
 	programId = glCreateProgram();
@@ -82,3 +84,5 @@ unsigned Shader::CompileShader(EShaderType type, std::string src)
 
 	return id;
 }
+
+#endif 

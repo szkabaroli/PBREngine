@@ -2,6 +2,7 @@
 #include "../Graphics.h"
 #include <assert.h>
 
+#ifdef OPEN_GL
 
 IndexBuffer::IndexBuffer(const unsigned* data, unsigned count) : count(count)
 {
@@ -30,3 +31,5 @@ void IndexBuffer::Unbind()
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
+
+#endif

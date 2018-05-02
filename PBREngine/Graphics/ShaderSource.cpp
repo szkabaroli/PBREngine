@@ -18,7 +18,7 @@ ShaderSource::ShaderSource(std::string path)
 		{
 			if (line.find("vertex") != std::string::npos)
 				type = EShaderType::VertexShader;
-			else if (line.find("fragment") != std::string::npos)
+			else if (line.find("pixel") != std::string::npos)
 				type = EShaderType::PixelShader;
 		}
 		else

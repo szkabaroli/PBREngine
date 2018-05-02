@@ -1,8 +1,9 @@
 ﻿#include "../Graphics.h"
 #include <iostream>
 
-static const unsigned depthFunctions[] =
-{
+#ifdef OPEN_GL
+
+static const unsigned depthFunctions[] ={
 	GL_ALWAYS,
 	GL_EQUAL,
 	GL_NOTEQUAL,
@@ -110,3 +111,5 @@ void Graphics::Draw(int size)
 {
 	glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, nullptr);
 }
+
+#endif
