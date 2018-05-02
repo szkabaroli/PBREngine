@@ -1,33 +1,24 @@
 #include "../VertexInput.h"
+#include <iostream>
 
 #ifdef OPEN_GL
 
-VertexInput::VertexInput()
+VertexInput::VertexInput(VertexInputElement e[], unsigned count, IndexBuffer* indexBuffer)
 {
 	glGenVertexArrays(1, &vaoId);
-}
-
-
-void VertexInput::AddBuffer(unsigned location, int size, VertexBuffer buffer) 
-{
 	glBindVertexArray(vaoId);
 
-	glBindBuffer(GL_ARRAY_BUFFER, buffer.bufferId);
-	glVertexAttribPointer(location, size, GL_FLOAT, GL_FALSE, sizeof(float) * size, 0);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	for (int i = 0; i < count; i++) {
 
-	glEnableVertexAttribArray(location);
+		e[i].buffer->Bind();
+		glVertexAttribPointer((e[i].binding + e[i].index), e[i].size, GL_FLOAT, GL_FALSE, sizeof(float) *  e[i].size, 0);
+		e[i].buffer->Unbind();
 
-	glBindVertexArray(0);
-}
+		glEnableVertexAttribArray((e[i].binding + e[i].index));
 
-
-void VertexInput::AddBuffer(IndexBuffer buffer)
-{
-	glBindVertexArray(vaoId);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer.bufferId);
-
+	}
+	
+	indexBuffer->Bind();
 	glBindVertexArray(0);
 }
 

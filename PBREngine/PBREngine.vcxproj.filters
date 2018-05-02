@@ -10,7 +10,6 @@
     <ClCompile Include="tiny_obj_loader.cc">
       <Filter>cpp</Filter>
     </ClCompile>
-    <ClCompile Include="Graphics\ShaderSource.cpp" />
     <ClCompile Include="Graphics\Direct3D11\DX11Graphics.cpp" />
     <ClCompile Include="Graphics\Direct3D11\DX11VertexBuffer.cpp" />
     <ClCompile Include="Graphics\OpenGL\GLGraphics.cpp" />
@@ -20,6 +19,9 @@
     <ClCompile Include="Graphics\OpenGL\GLVertexInput.cpp" />
     <ClCompile Include="Graphics\Direct3D11\DX11VertexInput.cpp" />
     <ClCompile Include="Graphics\Direct3D11\DX11IndexBuffer.cpp" />
+    <ClCompile Include="Graphics\OpenGL\GLShaderSource.cpp" />
+    <ClCompile Include="Graphics\Direct3D11\DX11ShaderSource.cpp" />
+    <ClCompile Include="Graphics\Direct3D11\DX11Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Graphics\Definitions.h">
@@ -48,5 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="pshader.hlsl" />
+    <FxCompile Include="vshader.hlsl" />
   </ItemGroup>
 </Project>

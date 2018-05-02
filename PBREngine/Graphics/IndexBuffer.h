@@ -1,18 +1,19 @@
 #pragma once
-
+#include "Graphics.h"
 
 class IndexBuffer
 {
 public:
-	IndexBuffer(const unsigned* data, unsigned count);
+	IndexBuffer(const unsigned* data, unsigned size);
 	~IndexBuffer();
 
 	void Bind();
 	void Unbind();
 
-	inline unsigned GetCount() const { return count; };
-
+#ifdef OPEN_GL
 	unsigned bufferId;
-	unsigned count;
+#elif DIRECTX_11
+	ID3D11Buffer* buffer;
+#endif
 };
 

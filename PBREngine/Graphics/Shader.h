@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include <sstream>
+#include "../common.h"
 
 enum EShaderType {
 	None = -1,
@@ -14,28 +14,27 @@ enum EShaderType {
 class ShaderSource 
 {
 public:
-	std::stringstream shaderStreams[5];
-	ShaderSource(std::string src);
+	ShaderSource(std::string fileName);
 
-	std::string GetSource(EShaderType type)
-	{
-		return shaderStreams[(int)type].str();
-	}
+	std::string sourceCode;
 };
 
 class Shader
 {
 public:
-	Shader(ShaderSource &source);
+	Shader(ShaderSource &vsource, ShaderSource &fsource);
 	~Shader();
-
-	void Link();
 
 	void Bind();
 	void Unbind();
 
-private:
+#ifdef OPEN_GL
 	unsigned programId;
 	unsigned CompileShader(EShaderType type, std::string src);
+#elif DIRECTX_11
+	ID3D11VertexShader* vertexShader;
+	ID3D11PixelShader* pixelShader;
+#endif 
+
 
 };

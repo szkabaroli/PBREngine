@@ -1,15 +1,19 @@
 #include "../Shader.h"
 #include "../Graphics.h"
 
+#include <iostream>
+
 #ifdef OPEN_GL
 
-Shader::Shader(ShaderSource &source)
+Shader::Shader(ShaderSource &vsource, ShaderSource &fsource)
 {
 	programId = glCreateProgram();
 	
-	unsigned vs = CompileShader(VertexShader , source.GetSource(VertexShader));
-	unsigned fs = CompileShader(PixelShader, source.GetSource(PixelShader));
+	unsigned vs = CompileShader(VertexShader , vsource.sourceCode.c_str());
+	unsigned fs = CompileShader(PixelShader, fsource.sourceCode.c_str());
 	
+	std::cout << fsource.sourceCode;
+
 	glAttachShader(programId, vs);
 	glAttachShader(programId, fs);
 	

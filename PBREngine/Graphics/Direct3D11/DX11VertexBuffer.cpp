@@ -7,25 +7,27 @@
 VertexBuffer::VertexBuffer(const void* data, unsigned size)
 {
 	D3D11_BUFFER_DESC bufferDesc;
+
 	bufferDesc.Usage = D3D11_USAGE_DEFAULT;
 	bufferDesc.ByteWidth = size;
 	bufferDesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	bufferDesc.CPUAccessFlags = 0;
 	bufferDesc.MiscFlags = 0;
 
-	D3D11_SUBRESOURCE_DATA InitData;
-	InitData.pSysMem = data;
-	InitData.SysMemPitch = 0;
-	InitData.SysMemSlicePitch = 0;
+	D3D11_SUBRESOURCE_DATA initData;
+
+	initData.pSysMem = data;
+	initData.SysMemPitch = 0;
+	initData.SysMemSlicePitch = 0;
 	
-	HRESULT r = gfx.device->CreateBuffer(&bufferDesc, &InitData, &vertexBuffer);
+	HRESULT r = gfx.device->CreateBuffer(&bufferDesc, &initData, &buffer);
 }
 
 
 VertexBuffer::~VertexBuffer()
 {
-	if(vertexBuffer)
-		vertexBuffer->Release();
+	if(buffer)
+		buffer->Release();
 }
 
 

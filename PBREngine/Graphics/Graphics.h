@@ -44,7 +44,7 @@ public:
 	void EndFrame();
 
 	void Draw(unsigned vertexStart, unsigned vertexCount);
-	void Draw(int size);
+	void Draw(int verticesCount);
 
 	SDL_Window* window = nullptr;
 
@@ -58,6 +58,8 @@ public:
 	ID3D11DeviceContext* deviceContext = nullptr;
 	ID3D11RenderTargetView* renderTargetView = nullptr;
 	D3D11_TEXTURE2D_DESC backBufferDesc;
+
+	const char* vsData;
 #endif // DIRECTX_11
 
 

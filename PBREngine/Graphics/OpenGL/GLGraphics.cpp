@@ -51,6 +51,8 @@ void Graphics::OpenWindow(const char* title, unsigned w, unsigned h, bool vsync,
 }
 
 
+
+
 void Graphics::CloseWindow() 
 {
 	if (window)
@@ -107,9 +109,9 @@ void Graphics::Draw(unsigned vertexStart, unsigned vertexCount)
 }
 
 
-void Graphics::Draw(int size)
+void Graphics::Draw(int verticesCount)
 {
-	glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, nullptr);
+	glDrawElements(GL_TRIANGLES, verticesCount, GL_UNSIGNED_INT, nullptr);
 }
 
 #endif

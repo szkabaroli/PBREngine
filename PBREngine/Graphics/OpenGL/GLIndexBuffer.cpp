@@ -1,17 +1,16 @@
 #include "../IndexBuffer.h"
-#include "../Graphics.h"
 #include <assert.h>
 
 #ifdef OPEN_GL
 
-IndexBuffer::IndexBuffer(const unsigned* data, unsigned count) : count(count)
+IndexBuffer::IndexBuffer(const unsigned* data, unsigned size)
 {
 	//Check the size of an unsigned int is equal to GLUint
 	assert(sizeof(unsigned int) == sizeof(GLuint));
 
 	glGenBuffers(1, &bufferId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, bufferId);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), data, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, GL_STATIC_DRAW);
 }
 
 

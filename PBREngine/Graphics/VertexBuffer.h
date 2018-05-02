@@ -13,7 +13,7 @@ public:
 #ifdef OPEN_GL
 	unsigned bufferId;
 #elif DIRECTX_11
-	ID3D11Buffer* vertexBuffer;
+	ID3D11Buffer* buffer;
 #endif
 };
 
